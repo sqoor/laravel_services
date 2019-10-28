@@ -16,10 +16,10 @@ class CreateProposalsTable extends Migration
         Schema::create('proposals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('provider_id');
             $table->boolean('is_accepted')->default(0);
             $table->foreign('service_id')->references('id')->on('services');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('provider_id')->references('id')->on('clients');
             $table->timestamps();
         });
     }
