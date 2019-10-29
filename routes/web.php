@@ -131,3 +131,6 @@ Route::get('/data', function () {
 Route::get('/dashboard', 'ClientController@dashboard');
 Route::get('/dashboard/create', 'ClientController@create');
 Route::post('/dashboard/save', 'ClientController@save');
+Route::get('/services/{service}', 'ClientController@show');
+
+//Route::resource('home', 'ClientController');

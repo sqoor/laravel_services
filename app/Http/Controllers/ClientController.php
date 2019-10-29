@@ -48,4 +48,11 @@ class ClientController extends Controller
 
         return redirect('/dashboard');
     }
+
+    public function show($id)
+    {
+        $service = Service::findOrFail($id);
+
+        return view('/client/service', compact('service'));
+    }
 }
