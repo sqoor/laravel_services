@@ -120,3 +120,14 @@ Route::get('/data', function () {
 
     }
 });
+
+
+//
+//Route::get('/', function () {
+//    return view('client.dashboard');
+//});
+
+
+Route::get('/dashboard', 'ClientController@dashboard');
+Route::get('/dashboard/create', 'ClientController@create');
+Route::post('/dashboard/save', 'ClientController@save');
