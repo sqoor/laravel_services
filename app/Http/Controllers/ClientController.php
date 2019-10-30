@@ -21,8 +21,9 @@ class ClientController extends Controller
 // // TODO: fix bug handle if user not exist
         $role = Auth::user()->role;
 
-        if ($role == 'client')
-            redirect('/');
+//        dd($role);
+        if ($role == 'client') return redirect('/');
+        elseif ($role == 'provider') return redirect('/');
 
         $user = Client::findOrFail(Auth::id()); // logged user id;
         $services = $user->services()->paginate(9);
@@ -56,7 +57,7 @@ class ClientController extends Controller
             'client_id' => Auth::id()
         ]);
 
-        return redirect('/home');
+        return redirect('/dashboard');
     }
 
     public function show($id)
@@ -64,5 +65,11 @@ class ClientController extends Controller
         $service = Service::findOrFail($id);
 
         return view('/client/service', compact('service'));
+    }
+
+    public function showProfile() {
+        $user = Auth::user();
+
+        return view('client.profile', compact('user'));
     }
 }

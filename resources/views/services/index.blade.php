@@ -2,12 +2,19 @@
 
 @section('content')
     <div class="container">
-        {{$services}}
-        <ul>
+        <div class="row">
             @foreach($services as $service)
-                <li>{{$service->title}}</li>
+                <div class="card border-secondary m-3 col-5" style="width: 100%">
+                    <div class="card-header">Header</div>
+                    <div class="card-body text-secondary">
+                        <h5 class="card-title">{{$service->title}}</h5>
+                        <p class="card-text">{{$service->description}}</p>
+                        <a href="/services/detail/{{$service->id}}" class="btn btn-primary">Details..</a>
+                    </div>
+                </div>
             @endforeach
-        </ul>
+        </div>
+
         {{$services->links()}}
     </div>
 @endsection

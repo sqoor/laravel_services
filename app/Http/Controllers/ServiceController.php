@@ -12,4 +12,11 @@ class ServiceController extends Controller
 
         return view('services.index', compact('services'));
     }
+
+    public function show($id) {
+        $service = Service::findOrFail($id);
+
+        return view('services.service', compact('service'));
+    }
+
 }
