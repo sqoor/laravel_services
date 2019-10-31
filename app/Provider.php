@@ -18,4 +18,9 @@ class Provider extends Model
     {
         return $this->hasOne('App\Proposal');
     }
+
+    public function services()
+    {
+        return $this->belongsToMany('App\Proposal', 'proposals');
+    }
 }

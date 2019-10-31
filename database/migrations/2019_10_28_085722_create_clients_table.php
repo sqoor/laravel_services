@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('age');
-            $table->string('image');
+            $table->string('image')->default('no-image.jpg');
             $table->string('phone');
             $table->enum('role', ['client', 'provider']);
             $table->string('email')->unique();

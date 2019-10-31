@@ -22,4 +22,9 @@ class Service extends Model
     {
         return $this->hasMany('App\Proposal');
     }
+
+    public function providers()
+    {
+        return $this->belongsToMany('App\Proposal', 'proposals');
+    }
 }

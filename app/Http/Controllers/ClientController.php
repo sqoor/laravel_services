@@ -22,8 +22,8 @@ class ClientController extends Controller
         $role = Auth::user()->role;
 
 //        dd($role);
-        if ($role == 'client') return redirect('/');
-        elseif ($role == 'provider') return redirect('/');
+//        if ($role == 'client') return redirect('/');
+        if ($role == 'provider') return redirect('/');
 
         $user = Client::findOrFail(Auth::id()); // logged user id;
         $services = $user->services()->paginate(9);

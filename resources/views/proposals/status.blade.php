@@ -1,15 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    <a href="/services" class="btn btn-outline-dark my-2">Go back</a>--}}
+    <a href="/services" class="btn btn-outline-dark my-2">Go back</a>
     <div class="card">
-        <h5 class="card-header">Card Info
-            @if(count(\App\Proposal::where('service_id', $service->id)->get()) > 0)
-                <span class="float-right">
-                    Status: {{ \App\Proposal::where('service_id', $service->id)->get()[0]->status  }}
-                </span>
-            @endif
-        </h5>
+        <h5 class="card-header">Card Info</h5>
         <div class="card-body">
             <h5 class="card-title">{{$service->title}}</h5>
             <p class="card-text">Description: {{$service->description}}</p>
@@ -20,9 +14,6 @@
             <p class="card-text">Created at: {{$service->created_at}}</p>
         </div>
     </div>
-
-    {{--    {{  dd(  \App\Proposal::where('service_id', $service->id)->get()[0]->id   )   }}--}}
-
 
     @if(count(\App\Proposal::where('service_id', $service->id)->get()) > 0)
         {{--decline--}}
@@ -38,5 +29,5 @@
             <button class="btn btn-info" type="submit">Propose</button>
         </form>
     @endif
-    {{--    @endif--}}
+    {{--    desclie if proposed already --}}
 @endsection

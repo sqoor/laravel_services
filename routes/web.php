@@ -29,7 +29,20 @@ Route::get('/profile', 'ClientController@showProfile')->name('profile');
 
 Route::get('/services', 'ServiceController@index')->name('services');
 Route::get('/services/detail/{service}', 'ServiceController@show');
+
+
+
 //Route::resource('home', 'ClientController');
+
+Route::post('/propose/{service}', 'ProposalController@save');
+Route::post('/propose/{proposal}/decline', 'ProposalController@remove');
+Route::get('/proposals', 'ProposalController@show')->name('proposals');
+Route::get('/clients/proposals', 'ProposalController@clientProposals')->name('client.proposals');
+Route::get('/client/services/detail/{service}', 'ProposalController@clientProposal')->name('client.service');
+
+Route::post('/proposal/accept/{proposal}', 'ProposalController@proposalAccept');
+Route::post('/proposal/decline/{proposal}', 'ProposalController@proposalDecline');
+
 
 Auth::routes();
 

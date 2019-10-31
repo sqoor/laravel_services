@@ -58,9 +58,16 @@
                             </li>
                         @endif
                     @else
+
+                        @if(Auth::user()->role === 'provider')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('proposals') }}">{{ __('My Proposals') }} <span
+                                        class="badge badge-pill badge-info">{{count(\App\Proposal::where('provider_id', \Illuminate\Support\Facades\Auth::id())->get())}}</span>
+                                </a>
+                            </li>
+                        @endif
+
                         @if(Auth::user()->role == 'client')
-
-
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('dashboard') }}"
@@ -73,15 +80,20 @@
                                     <a class="dropdown-item" href="{{ route('dashboard') }}">
                                         {{ __('My Services') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('client.proposals') }}">
+                                        {{ __('Proposals') }} <span class="badge badge-pill badge-warning">
+{{--                                            {{\App\User::whereHas('services', function($q) {--}}
+{{--                                                $q::whereHas('proposals', function($q2) {--}}
+{{--                                                    $q2::all();--}}
+{{--                                                });--}}
+{{--                                            })}}--}}
+                                        </span>
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('service.create') }}">
                                         {{ __('Create Service') }}
                                     </a>
                                 </div>
                             </li>
-
-
-
-
 
                         @endif
                         <li class="nav-item dropdown">
