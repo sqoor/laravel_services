@@ -31,7 +31,6 @@ Route::get('/services', 'ServiceController@index')->name('services');
 Route::get('/services/detail/{service}', 'ServiceController@show');
 
 
-
 //Route::resource('home', 'ClientController');
 
 Route::post('/propose/{service}', 'ProposalController@save');

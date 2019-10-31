@@ -2,14 +2,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Dashboard</h1>
-    <div class="options">
-        <a href="/dashboard/create" class="btn btn-primary">Add a new service</a>
+    <div class="container">
+        <h3 class="text-muted">Dashboard</h3>
         {{--        // CRUD Operations--}}
         {{--        // form to create a new service--}}
         {{--        // with the list of services delete/ update // or maybe we don't want to delete as we do have foreign keys--}}
 
         <div class="history mt-4">
+            <a href="/dashboard/create" class="btn btn-primary mb-5">Add a new service</a>
             <h3 class="text-muted ml-5">List of services</h3>
             <ul>
                 @if(count($services) > 0)
@@ -20,9 +20,9 @@
 
                                 <div class="card border-secondary m-3 col-4" style="max-width: 18rem;">
 
-                                    <div class="card-header">Header</div>
+                                    <div class="card-header"><span class="text-muted">Title: </span>{{$service->title}}</div>
                                     <div class="card-body text-secondary">
-                                        <h5 class="card-title">{{$service->title}}</h5>
+                                        <h5 class="card-title">Description</h5>
                                         <p class="card-text">{{$service->description}}</p>
                                         <a href="/services/{{$service->id}}" class="btn btn-primary">Details..</a>
                                     </div>

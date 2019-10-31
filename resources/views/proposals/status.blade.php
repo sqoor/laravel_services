@@ -3,7 +3,7 @@
 @section('content')
     <a href="/services" class="btn btn-outline-dark my-2">Go back</a>
     <div class="card">
-        <h5 class="card-header">Card Info</h5>
+        <h5 class="card-header">Service Info</h5>
         <div class="card-body">
             <h5 class="card-title">{{$service->title}}</h5>
             <p class="card-text">Description: {{$service->description}}</p>
